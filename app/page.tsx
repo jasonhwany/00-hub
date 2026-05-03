@@ -117,48 +117,92 @@ function ToolCard({
 
 export default function HubPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
+    <main className="max-w-4xl mx-auto px-4 py-8">
 
-      {/* Hero — 압축 */}
-      <section className="text-center mb-8">
-        {/* 상단 뱃지 */}
-        <div className="inline-block mb-4">
-          <span
-            className="text-xs font-semibold px-3 py-1.5 rounded-full border"
-            style={{
-              color: "#B8860B",
-              borderColor: "#D4A017",
-              backgroundColor: "#FDF8EE",
-            }}
-          >
-            2026년 최신 법령 기준 · 무료 계산기
-          </span>
-        </div>
+      {/* Hero — 2열 레이아웃 */}
+      <section className="mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-        <h1
-          className="text-4xl sm:text-5xl font-bold tracking-tight mb-4 leading-tight"
-          style={{ fontFamily: "var(--font-serif)", color: "#1A1A1A" }}
-        >
-          부동산 세금,<br />직접 계산해 보세요
-        </h1>
-        <p className="text-lg mb-6" style={{ color: "#6B6B6B" }}>
-          집 사고 팔기 전 취득세·양도세·종부세를 미리 확인하세요
-        </p>
+          {/* 좌: 소개 텍스트 */}
+          <div>
+            {/* 상단 뱃지 */}
+            <div className="mb-4">
+              <span
+                className="text-xs font-semibold px-3 py-1.5 rounded-full border"
+                style={{
+                  color: "#B8860B",
+                  borderColor: "#D4A017",
+                  backgroundColor: "#FDF8EE",
+                }}
+              >
+                2026년 최신 법령 기준 · 무료 계산기
+              </span>
+            </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href="/takdeukse"
-            className="btn-gold inline-block font-semibold px-6 py-3 rounded-lg text-white"
-          >
-            취득세 계산하기
-          </a>
-          <a
-            href="#core-tools"
-            className="inline-block font-semibold px-6 py-3 rounded-lg transition-colors border"
-            style={{ borderColor: "#E8E4DD", color: "#1A1A1A" }}
-          >
-            모든 계산기 보기
-          </a>
+            <h1
+              className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 leading-tight"
+              style={{ fontFamily: "var(--font-serif)", color: "#1A1A1A" }}
+            >
+              부동산 세금,<br />직접 계산해 보세요
+            </h1>
+            <p className="text-base mb-5" style={{ color: "#6B6B6B" }}>
+              집 사고 팔기 전 취득세·양도세·종부세를<br />미리 정확하게 확인하세요
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="/takdeukse"
+                className="btn-gold inline-block font-semibold px-6 py-3 rounded-lg text-white text-center"
+              >
+                취득세 계산하기
+              </a>
+              <a
+                href="#core-tools"
+                className="inline-block font-semibold px-6 py-3 rounded-lg transition-colors border text-center"
+                style={{ borderColor: "#E8E4DD", color: "#1A1A1A" }}
+              >
+                모든 계산기 보기
+              </a>
+            </div>
+          </div>
+
+          {/* 우: 주요 계산기 3개 바로가기 카드 */}
+          <div className="flex flex-col gap-3">
+            {[
+              { name: "취득세 계산기", desc: "주택·토지 취득 시 세금 계산", href: "/takdeukse", icon: "🏠" },
+              { name: "양도소득세 계산기", desc: "부동산 매도 시 양도차익 세금", href: "/yangdo", icon: "📊" },
+              { name: "대출이자 계산기", desc: "원리금·원금균등·만기일시 비교", href: "/daeul", icon: "💰" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="flex items-center gap-4 rounded-xl border p-4 transition-all hover:border-[#B8860B] hover:bg-[#F5EDD8] shadow-sm"
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#E8E4DD" }}
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <div>
+                  <p className="font-semibold text-sm" style={{ color: "#1A1A1A" }}>{item.name}</p>
+                  <p className="text-xs" style={{ color: "#6B6B6B" }}>{item.desc}</p>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#B8860B"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="ml-auto flex-shrink-0"
+                  aria-hidden="true"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </a>
+            ))}
+          </div>
+
         </div>
       </section>
 
