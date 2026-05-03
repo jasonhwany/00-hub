@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-
-const geist = { variable: "--font-geist" };
+import GlobalHeader from "../components/GlobalHeader";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneystom7.com"),
   title: {
-    default: "MoneyStom7 — 무료 금융·생활 계산기 모음",
+    default: "MoneyStom7 — 한국 부동산·세금 계산기",
     template: "%s | MoneyStom7",
   },
   description:
-    "복리 계산기, 대출 계산기, 환율 변환 등 100가지 무료 금융·생활 도구를 한곳에서. 광고 없이 빠르게 계산하세요.",
-  keywords: ["무료 계산기", "금융 계산기", "복리 계산기", "대출 계산기", "재테크"],
+    "취득세, 양도소득세, 종합부동산세 등 한국 부동산 세금을 직접 계산하세요. 집 사고 팔기 전 꼭 확인하는 무료 계산기 모음.",
+  keywords: ["취득세 계산기", "양도소득세 계산기", "종합부동산세 계산기", "부동산 세금 계산기", "종부세 계산기", "부동산 계산기"],
   openGraph: {
     siteName: "MoneyStom7",
     locale: "ko_KR",
@@ -27,8 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={geist.variable}>
-      <body className="min-h-screen bg-gray-950 text-gray-100 antialiased">
+    <html lang="ko">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className="min-h-screen antialiased"
+        style={{ backgroundColor: "#FAFAF7", color: "#1A1A1A" }}
+      >
+        <GlobalHeader />
         {children}
         <Script
           async

@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+:root {
+  --font-sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: 'Noto Serif KR', Georgia, serif;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.btn-gold {
+  background-color: #B8860B;
+  transition: background-color 0.15s;
+}
+.btn-gold:hover {
+  background-color: #9A720A;
 }
