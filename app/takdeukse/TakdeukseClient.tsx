@@ -8,6 +8,7 @@ import {
   type HouseCount,
 } from "../../lib/takdeukse";
 import FaqAccordion from "../../components/FaqAccordion";
+import AdUnit from "../../components/AdUnit";
 
 // URL 쿼리스트링 업데이트 (history를 쌓지 않음)
 function updateURL(params: Record<string, string>) {
@@ -397,6 +398,9 @@ export default function TakdeuksePage() {
           취득가액과 전용면적을 입력하면 세액이 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 FAQ 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <FaqAccordion items={TAKDEUKSE_FAQ} />
 

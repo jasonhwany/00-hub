@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { calcYeonbong, formatKRW, formatRate } from "../../lib/yeonbong";
 import FaqAccordion from "../../components/FaqAccordion";
+import AdUnit from "../../components/AdUnit";
 
 function updateURL(params: Record<string, string>) {
   if (typeof window === "undefined") return;
@@ -535,6 +536,9 @@ export default function YeonbongClient() {
           연봉을 입력하면 월 실수령액과 공제 내역이 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 FAQ 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <FaqAccordion items={YEONBONG_FAQ} />
 

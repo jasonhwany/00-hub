@@ -39,6 +39,13 @@ export default function RootLayout({
         className="min-h-screen antialiased"
         style={{ backgroundColor: "#FAFAF7", color: "#1A1A1A" }}
       >
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8414331859152952"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <GlobalHeader />
         {children}
         <Script
