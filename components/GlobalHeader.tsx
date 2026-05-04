@@ -22,6 +22,7 @@ const MORE_LINKS = [
   { name: "평/㎡ 변환기", href: "/pyeong" },
   { name: "임대수익률 계산기", href: "/imdae" },
   { name: "전월세 전환 계산기", href: "/jeonwolse" },
+  { name: "연봉 실수령액 계산기", href: "/yeonbong" },
 ] as const;
 
 // 모바일 스크롤 바에는 전체 10개 표시

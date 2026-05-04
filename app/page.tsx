@@ -62,12 +62,18 @@ const subTools = [
     url: "/jeonwolse",
     live: true,
   },
+  {
+    name: "연봉 실수령액 계산기",
+    desc: "4대 보험·소득세 공제 후 월 실수령액을 계산합니다.",
+    url: "/yeonbong",
+    live: true,
+  },
 ];
 
 const trustBadges = [
   "현행 법령 기준",
-  "2026년 4월 최신",
-  "계산기 10종",
+  "2026년 최신",
+  "계산기 11종",
   "세무사 검토 방식",
 ];
 
