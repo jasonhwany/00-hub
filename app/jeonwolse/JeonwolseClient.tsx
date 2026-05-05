@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcJeonwolse, formatKRW, type ConvertDirection } from "../../lib/jeonwolse";
+import AdUnit from "../../components/AdUnit";
 
 const DIRECTION_OPTIONS: { value: ConvertDirection; label: string; desc: string }[] = [
   { value: "jeonse_to_monthly", label: "전세 → 월세", desc: "전세금을 보증금+월세로" },
@@ -284,6 +285,9 @@ export default function JeonwolsePage() {
           금액을 입력하면 전환 결과가 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 계약 조건과 다를 수 있습니다.

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcJungae, formatKRW, formatRate, type TransactionType } from "../../lib/jungae";
+import AdUnit from "../../components/AdUnit";
 
 const TRANSACTION_OPTIONS: { value: TransactionType; label: string }[] = [
   { value: "sale", label: "매매" },
@@ -298,6 +299,9 @@ export default function JungaePage() {
           </div>
         </div>
       </section>
+
+      {/* 광고 — 요율표와 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 수수료는 협의에 따라 달라질 수 있습니다.

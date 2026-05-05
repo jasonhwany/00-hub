@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcImdae, formatKRW } from "../../lib/imdae";
+import AdUnit from "../../components/AdUnit";
 
 function ResultRow({
   label,
@@ -247,6 +248,9 @@ export default function ImdaePage() {
           매입가·보증금·월세를 입력하면 수익률이 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 수익률과 다를 수 있습니다.

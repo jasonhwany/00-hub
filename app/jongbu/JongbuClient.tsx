@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcJongbu, formatKRW, type JongbuResult } from "../../lib/jongbu";
+import AdUnit from "../../components/AdUnit";
 
 const HOUSE_OPTIONS = [
   { value: 1, label: "1주택" },
@@ -339,6 +340,9 @@ export default function JongbuPage() {
           공시가격을 입력하면 종합부동산세가 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 납부세액과 다를 수 있습니다.

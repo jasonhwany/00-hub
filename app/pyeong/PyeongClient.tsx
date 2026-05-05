@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { convertArea, type ConvertUnit } from "../../lib/pyeong";
+import AdUnit from "../../components/AdUnit";
 
 const COMMON_SIZES = [
   { label: "10평 (33㎡)", pyeong: 10 },
@@ -171,6 +172,9 @@ export default function PyeongPage() {
           ))}
         </div>
       </section>
+
+      {/* 광고 — 빠른 선택과 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         1평 = 3.305785㎡ (법정 환산값 기준)

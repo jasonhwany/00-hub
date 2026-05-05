@@ -17,6 +17,7 @@ import {
   SCHEDULE_DEFAULT_ROWS,
   type RepaymentType,
 } from "../../lib/daeul-constants";
+import AdUnit from "../../components/AdUnit";
 
 // ────────────────────────────────────────────────
 // 도넛 차트 컴포넌트 (순수 SVG, 외부 라이브러리 불필요)
@@ -715,6 +716,9 @@ export default function DaeulPage() {
       />}
 
       {result && <ScheduleTable schedule={result.schedule} repaymentType={repaymentType} />}
+
+      {/* 광고 — 스케줄 테이블과 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 납부금액과 다를 수 있습니다.

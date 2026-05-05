@@ -7,6 +7,7 @@ import {
   formatKRW,
   type DonorRelation,
 } from "../../lib/jeungyese";
+import AdUnit from "../../components/AdUnit";
 
 const RELATION_OPTIONS: { value: DonorRelation; label: string; deduction: string }[] = [
   { value: "spouse", label: "배우자", deduction: "6억 공제" },
@@ -249,6 +250,9 @@ export default function JeungyesePage() {
           증여 금액을 입력하면 증여세가 자동으로 계산됩니다.
         </section>
       )}
+
+      {/* 광고 — 결과와 면책문구 사이 */}
+      <AdUnit slot="3821905648" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 납부세액과 다를 수 있습니다.
