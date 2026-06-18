@@ -7,7 +7,7 @@ import {
   formatKRW,
   type DonorRelation,
 } from "../../lib/jeungyese";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 const RELATION_OPTIONS: { value: DonorRelation; label: string; deduction: string }[] = [
   { value: "spouse", label: "배우자", deduction: "6억 공제" },
@@ -251,8 +251,8 @@ export default function JeungyesePage() {
         </section>
       )}
 
-      {/* 광고 — 결과와 면책문구 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 면책문구 사이 */}
+      <AffiliateCTA slotKey="jeungyese" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 납부세액과 다를 수 있습니다.

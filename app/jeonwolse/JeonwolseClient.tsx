@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcJeonwolse, formatKRW, type ConvertDirection } from "../../lib/jeonwolse";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 const DIRECTION_OPTIONS: { value: ConvertDirection; label: string; desc: string }[] = [
   { value: "jeonse_to_monthly", label: "전세 → 월세", desc: "전세금을 보증금+월세로" },
@@ -286,8 +286,8 @@ export default function JeonwolsePage() {
         </section>
       )}
 
-      {/* 광고 — 결과와 면책문구 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 면책문구 사이 */}
+      <AffiliateCTA slotKey="jeonwolse" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 계약 조건과 다를 수 있습니다.

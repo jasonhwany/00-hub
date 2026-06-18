@@ -9,7 +9,7 @@ import {
   type HouseCount,
 } from "../../lib/yangdo";
 import FaqAccordion from "../../components/FaqAccordion";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 // URL 쿼리스트링 업데이트 (history를 쌓지 않음)
 function updateURL(params: Record<string, string>) {
@@ -481,8 +481,8 @@ export default function YangdoPage() {
         </section>
       )}
 
-      {/* 광고 — 결과와 FAQ 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 FAQ 사이 */}
+      <AffiliateCTA slotKey="yangdo" className="my-6" />
 
       <FaqAccordion items={YANGDO_FAQ} />
 

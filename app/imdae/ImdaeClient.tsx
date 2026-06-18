@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcImdae, formatKRW } from "../../lib/imdae";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 function ResultRow({
   label,
@@ -249,8 +249,8 @@ export default function ImdaePage() {
         </section>
       )}
 
-      {/* 광고 — 결과와 면책문구 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 면책문구 사이 */}
+      <AffiliateCTA slotKey="imdae" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 수익률과 다를 수 있습니다.

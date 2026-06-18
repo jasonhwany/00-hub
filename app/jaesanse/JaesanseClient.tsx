@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calcJaesanse, formatKRW, type PropertyType } from "../../lib/jaesanse";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 const PROPERTY_OPTIONS: { value: PropertyType; label: string; desc: string }[] = [
   { value: "house", label: "주택", desc: "공시가격×60% 과세" },
@@ -214,8 +214,8 @@ export default function JaesansePage() {
         </section>
       )}
 
-      {/* 광고 — 결과와 면책문구 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 면책문구 사이 */}
+      <AffiliateCTA slotKey="jaesanse" className="my-6" />
 
       <p className="text-xs leading-relaxed text-center" style={{ color: "#6B6B6B" }}>
         본 계산 결과는 참고용이며 실제 납부세액과 다를 수 있습니다.

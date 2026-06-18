@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { calcYeonbong, formatKRW, formatRate } from "../../lib/yeonbong";
 import FaqAccordion from "../../components/FaqAccordion";
-import AdUnit from "../../components/AdUnit";
+import AffiliateCTA from "../../components/AffiliateCTA";
 
 function updateURL(params: Record<string, string>) {
   if (typeof window === "undefined") return;
@@ -537,8 +537,8 @@ export default function YeonbongClient() {
         </section>
       )}
 
-      {/* 광고 — 결과와 FAQ 사이 */}
-      <AdUnit slot="3821905648" className="my-6" />
+      {/* 제휴 배너 — 결과와 FAQ 사이 */}
+      <AffiliateCTA slotKey="yeonbong" className="my-6" />
 
       <FaqAccordion items={YEONBONG_FAQ} />
 
