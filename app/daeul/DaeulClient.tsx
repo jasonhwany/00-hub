@@ -18,6 +18,7 @@ import {
   type RepaymentType,
 } from "../../lib/daeul-constants";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 // ────────────────────────────────────────────────
 // 도넛 차트 컴포넌트 (순수 SVG, 외부 라이브러리 불필요)
@@ -479,6 +480,8 @@ export default function DaeulPage() {
     try { return calcDaeul({ principal, annualRate, months, repaymentType }); }
     catch { return null; }
   }, [principal, annualRate, months, repaymentType, isValid]);
+
+  useTrackResult("daeul", result);
 
   // 결과 첫 생성 시 모바일에서만 자동 스크롤
   const prevResultRef = useRef<DaeulResult | null>(null);

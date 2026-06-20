@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { convertArea, type ConvertUnit } from "../../lib/pyeong";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const COMMON_SIZES = [
   { label: "10평 (33㎡)", pyeong: 10 },
@@ -18,6 +19,8 @@ export default function PyeongPage() {
 
   const numValue = parseFloat(inputValue) || 0;
   const result = numValue > 0 ? convertArea(numValue, unit) : null;
+
+  useTrackResult("pyeong", result);
 
   function handleQuickSelect(pyeong: number) {
     setUnit("pyeong");

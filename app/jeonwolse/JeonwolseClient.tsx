@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calcJeonwolse, formatKRW, type ConvertDirection } from "../../lib/jeonwolse";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const DIRECTION_OPTIONS: { value: ConvertDirection; label: string; desc: string }[] = [
   { value: "jeonse_to_monthly", label: "전세 → 월세", desc: "전세금을 보증금+월세로" },
@@ -41,6 +42,8 @@ export default function JeonwolsePage() {
       conversionRate: rate,
     });
   }, [direction, jeonseDeposit, newDeposit, existingDeposit, monthlyRent, rate]);
+
+  useTrackResult("jeonwolse", result);
 
   const inputClass =
     "w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B8860B] transition-colors";

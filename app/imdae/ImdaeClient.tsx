@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calcImdae, formatKRW } from "../../lib/imdae";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 function ResultRow({
   label,
@@ -71,6 +72,8 @@ export default function ImdaePage() {
   const result = useMemo(() => {
     return calcImdae({ purchasePrice, deposit, monthlyRent, annualExpense });
   }, [purchasePrice, deposit, monthlyRent, annualExpense]);
+
+  useTrackResult("imdae", result);
 
   const inputClass =
     "w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B8860B] transition-colors";

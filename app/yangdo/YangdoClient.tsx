@@ -10,6 +10,7 @@ import {
 } from "../../lib/yangdo";
 import FaqAccordion from "../../components/FaqAccordion";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 // URL 쿼리스트링 업데이트 (history를 쌓지 않음)
 function updateURL(params: Record<string, string>) {
@@ -208,6 +209,8 @@ export default function YangdoPage() {
       isAdjustmentArea: showAdjustmentSection ? isAdjustmentArea : false,
     });
   }, [saleInput.value, acqInput.value, costInput.value, holdingYears, houseCount, isOneHousehold, meetsNonTaxReq, residingYears, isAdjustmentArea, showOneHouseholdSection, showAdjustmentSection]);
+
+  useTrackResult("yangdo", result);
 
   // 결과 첫 생성 시 모바일에서만 자동 스크롤
   const prevResultRef = useRef<ReturnType<typeof calcYangdo> | null>(null);

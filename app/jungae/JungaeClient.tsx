@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calcJungae, formatKRW, formatRate, type TransactionType } from "../../lib/jungae";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const TRANSACTION_OPTIONS: { value: TransactionType; label: string }[] = [
   { value: "sale", label: "매매" },
@@ -81,6 +82,8 @@ export default function JungaePage() {
       monthlyRent: transactionType === "monthly" ? monthlyRent : undefined,
     });
   }, [transactionType, salePrice, deposit, monthlyRent]);
+
+  useTrackResult("jungae", result);
 
   const inputClass =
     "w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B8860B] transition-colors";

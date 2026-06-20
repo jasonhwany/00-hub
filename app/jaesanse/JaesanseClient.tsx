@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calcJaesanse, formatKRW, type PropertyType } from "../../lib/jaesanse";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const PROPERTY_OPTIONS: { value: PropertyType; label: string; desc: string }[] = [
   { value: "house", label: "주택", desc: "공시가격×60% 과세" },
@@ -65,6 +66,8 @@ export default function JaesansePage() {
     if (publicPrice <= 0) return null;
     return calcJaesanse({ propertyType, publicPrice });
   }, [publicPrice, propertyType]);
+
+  useTrackResult("jaesanse", result);
 
   function handlePriceChange(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.value.replace(/[^0-9]/g, "");

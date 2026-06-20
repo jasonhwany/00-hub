@@ -1,4 +1,7 @@
+"use client";
+
 import { affiliateOffers } from "../lib/affiliateLinks";
+import { trackEvent } from "../lib/gtag";
 
 interface AffiliateCTAProps {
   /** affiliateLinks.ts의 키 (계산기 slug) */
@@ -29,6 +32,7 @@ export default function AffiliateCTA({ slotKey, className = "" }: AffiliateCTAPr
         rel="noopener noreferrer sponsored"
         className="text-sm font-semibold hover:underline"
         style={{ color: "#B8860B" }}
+        onClick={() => trackEvent("affiliate_click", { calculator: slotKey, offer: offer.cta })}
       >
         [{offer.cta}]
       </a>

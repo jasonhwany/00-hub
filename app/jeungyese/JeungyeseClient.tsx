@@ -8,6 +8,7 @@ import {
   type DonorRelation,
 } from "../../lib/jeungyese";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const RELATION_OPTIONS: { value: DonorRelation; label: string; deduction: string }[] = [
   { value: "spouse", label: "배우자", deduction: "6억 공제" },
@@ -75,6 +76,8 @@ export default function JeungyesePage() {
     if (giftAmount <= 0) return null;
     return calcJeungyese({ giftAmount, relation, priorGiftAmount });
   }, [giftAmount, relation, priorGiftAmount]);
+
+  useTrackResult("jeungyese", result);
 
   function handleMoneyInput(
     e: React.ChangeEvent<HTMLInputElement>,

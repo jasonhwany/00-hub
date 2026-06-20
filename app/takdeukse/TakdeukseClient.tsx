@@ -9,6 +9,7 @@ import {
 } from "../../lib/takdeukse";
 import FaqAccordion from "../../components/FaqAccordion";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 // URL 쿼리스트링 업데이트 (history를 쌓지 않음)
 function updateURL(params: Record<string, string>) {
@@ -142,6 +143,8 @@ export default function TakdeuksePage() {
       area,
     });
   }, [price, houseCount, isAdjustmentArea, area, showAdjustmentToggle]);
+
+  useTrackResult("takdeukse", result);
 
   // 결과 첫 생성 시 모바일에서만 자동 스크롤
   const prevResultRef = useRef<ReturnType<typeof calcTakdeukse> | null>(null);

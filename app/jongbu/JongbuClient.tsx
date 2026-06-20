@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calcJongbu, formatKRW, type JongbuResult } from "../../lib/jongbu";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 const HOUSE_OPTIONS = [
   { value: 1, label: "1주택" },
@@ -78,6 +79,8 @@ export default function JongbuPage() {
       ownerAge: age,
     });
   }, [price, houseCount, isAdjustmentArea, isSingleHousehold, years, age]);
+
+  useTrackResult("jongbu", result);
 
   function handlePriceChange(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.value.replace(/[^0-9]/g, "");

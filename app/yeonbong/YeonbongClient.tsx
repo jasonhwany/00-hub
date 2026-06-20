@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { calcYeonbong, formatKRW, formatRate } from "../../lib/yeonbong";
 import FaqAccordion from "../../components/FaqAccordion";
 import AffiliateCTA from "../../components/AffiliateCTA";
+import { useTrackResult } from "../../lib/useTrackResult";
 
 function updateURL(params: Record<string, string>) {
   if (typeof window === "undefined") return;
@@ -150,6 +151,8 @@ export default function YeonbongClient() {
       hasPrivatePension,
     });
   }, [salary, dependents, hasMealAllowance, hasPrivatePension]);
+
+  useTrackResult("yeonbong", result);
 
   // 첫 결과 생성 시 모바일 스크롤
   const prevResultRef = useRef<ReturnType<typeof calcYeonbong> | null>(null);
