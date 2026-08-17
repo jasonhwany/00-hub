@@ -7,14 +7,14 @@ import SiteFooter from "../components/SiteFooter";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.moneystom7.com"),
   title: {
-    default: "MoneyStom7 — 한국 부동산·세금 계산기",
-    template: "%s | MoneyStom7",
+    default: "Fiscal Atlas — 세금·금융 의사결정 도구",
+    template: "%s | Fiscal Atlas",
   },
   description:
     "취득세, 양도소득세, 종합부동산세 등 한국 부동산 세금을 직접 계산하세요. 집 사고 팔기 전 꼭 확인하는 무료 계산기 모음.",
   keywords: ["취득세 계산기", "양도소득세 계산기", "종합부동산세 계산기", "부동산 세금 계산기", "종부세 계산기", "부동산 계산기"],
   openGraph: {
-    siteName: "MoneyStom7",
+    siteName: "Fiscal Atlas",
     locale: "ko_KR",
     type: "website",
   },
@@ -32,7 +32,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
