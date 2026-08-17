@@ -2,205 +2,56 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-// ────────────────────────────────────────────────
-// 헤더 메인 링크 (6개 — 데스크탑 기준)
-// ────────────────────────────────────────────────
 const MAIN_LINKS = [
-  { name: "취득세", href: "/takdeukse" },
-  { name: "대출이자", href: "/daeul" },
-  { name: "양도소득세", href: "/yangdo" },
-  { name: "종합부동산세", href: "/jongbu" },
-  { name: "증여세", href: "/jeungyese" },
-  { name: "재산세", href: "/jaesanse" },
+  { name: "취득세", href: "/takdeukse" }, { name: "양도소득세", href: "/yangdo" },
+  { name: "대출이자", href: "/daeul" }, { name: "종부세", href: "/jongbu" },
+  { name: "증여세", href: "/jeungyese" }, { name: "재산세", href: "/jaesanse" },
 ] as const;
-
-// "더보기" 드롭다운에 표시할 나머지 계산기
 const MORE_LINKS = [
-  { name: "중개수수료 계산기", href: "/jungae" },
-  { name: "평/㎡ 변환기", href: "/pyeong" },
-  { name: "임대수익률 계산기", href: "/imdae" },
-  { name: "전월세 전환 계산기", href: "/jeonwolse" },
-  { name: "연봉 실수령액 계산기", href: "/yeonbong" },
+  { name: "중개수수료", href: "/jungae" }, { name: "평·㎡ 변환", href: "/pyeong" },
+  { name: "임대수익률", href: "/imdae" }, { name: "전월세 전환", href: "/jeonwolse" },
+  { name: "연봉 실수령액", href: "/yeonbong" },
 ] as const;
-
-// 모바일 스크롤 바에는 전체 10개 표시
-const ALL_LINKS = [...MAIN_LINKS, ...MORE_LINKS] as const;
+const ALL_LINKS = [...MAIN_LINKS, ...MORE_LINKS];
 
 export default function GlobalHeader() {
   const pathname = usePathname();
-  const [moreOpen, setMoreOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // 드롭다운 외부 클릭 시 닫기
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => { setOpen(false); }, [pathname]);
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setMoreOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    const close = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener("mousedown", close); return () => document.removeEventListener("mousedown", close);
   }, []);
 
-  // 경로 변경 시 드롭다운 닫기
-  useEffect(() => {
-    setMoreOpen(false);
-  }, [pathname]);
-
   return (
-    <header
-      className="sticky top-0 z-50 bg-white border-b border-gray-200"
-      style={{ fontFamily: "var(--font-sans)" }}
-    >
-      {/* 메인 헤더 바 */}
-      <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
-
-        {/* 로고 */}
-        <Link
-          href="/"
-          className="flex-shrink-0 font-bold text-base tracking-tight transition-opacity hover:opacity-70"
-          style={{ color: "#B8860B" }}
-          aria-label="MoneyStom7 홈으로"
-        >
-          moneystom7
+    <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl">
+      <div className="site-container flex h-16 items-center justify-between gap-5">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="MoneyStom7 홈">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#142b49] text-sm font-black text-white shadow-sm">M</span>
+          <span><b className="block text-[15px] tracking-[-.02em] text-slate-950">MoneyStom7</b><small className="block text-[9px] font-bold uppercase tracking-[.16em] text-slate-400">Financial tools</small></span>
         </Link>
-
-        {/* 데스크탑: 계산기 링크 + 더보기 (md 이상에서만 표시) */}
-        <nav
-          className="hidden md:flex items-center gap-1"
-          aria-label="주요 계산기"
-        >
-          {MAIN_LINKS.map(({ name, href }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className="text-sm px-3 py-1.5 rounded-md transition-colors whitespace-nowrap"
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: "#F5EDD8",
-                        color: "#B8860B",
-                        fontWeight: 600,
-                      }
-                    : {
-                        color: "#6B6B6B",
-                      }
-                }
-                aria-current={isActive ? "page" : undefined}
-              >
-                {name}
-              </Link>
-            );
-          })}
-
-          {/* 더보기 드롭다운 버튼 */}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setMoreOpen((prev) => !prev)}
-              className="text-sm px-3 py-1.5 rounded-md transition-colors whitespace-nowrap flex items-center gap-1"
-              style={{ color: moreOpen ? "#B8860B" : "#6B6B6B" }}
-              aria-expanded={moreOpen}
-              aria-haspopup="true"
-            >
-              더보기
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                style={{
-                  transform: moreOpen ? "rotate(180deg)" : "rotate(0deg)",
-                  transition: "transform 0.15s ease",
-                }}
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-
-            {/* 드롭다운 메뉴 */}
-            {moreOpen && (
-              <div
-                className="absolute right-0 top-full mt-1 rounded-xl border shadow-lg py-2 min-w-[180px] z-50"
-                style={{ backgroundColor: "#FFFFFF", borderColor: "#E8E4DD" }}
-                role="menu"
-              >
-                {MORE_LINKS.map(({ name, href }) => {
-                  const isActive = pathname === href;
-                  return (
-                    <Link
-                      key={href}
-                      href={href}
-                      role="menuitem"
-                      className="block px-4 py-2.5 text-sm transition-colors"
-                      style={
-                        isActive
-                          ? { backgroundColor: "#F5EDD8", color: "#B8860B", fontWeight: 600 }
-                          : { color: "#1A1A1A" }
-                      }
-                      onMouseEnter={(e) => {
-                        if (!isActive) {
-                          (e.currentTarget as HTMLElement).style.backgroundColor = "#F9F6F1";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isActive) {
-                          (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                        }
-                      }}
-                    >
-                      {name}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="주요 계산기">
+          {MAIN_LINKS.map((item) => <NavLink key={item.href} {...item} active={pathname === item.href} />)}
+          <div className="relative" ref={ref}>
+            <button onClick={() => setOpen(v => !v)} className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-950" aria-expanded={open}>더보기 <span className={`text-[10px] transition ${open ? "rotate-180" : ""}`}>▼</span></button>
+            {open && <div className="absolute right-0 top-11 w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-900/10">{MORE_LINKS.map(item => <Link key={item.href} href={item.href} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">{item.name}</Link>)}</div>}
           </div>
         </nav>
-      </div>
-
-      {/* 모바일: 가로 스크롤 링크 바 (md 미만에서만 표시) */}
-      <nav
-        className="md:hidden border-t border-gray-100 overflow-x-auto"
-        aria-label="주요 계산기 (모바일)"
-        style={{ scrollbarWidth: "none" }}
-      >
-        <div className="flex items-center gap-1 px-4 py-2 whitespace-nowrap w-max">
-          {ALL_LINKS.map(({ name, href }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className="text-sm px-3 py-1.5 rounded-md transition-colors whitespace-nowrap"
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: "#F5EDD8",
-                        color: "#B8860B",
-                        fontWeight: 600,
-                      }
-                    : {
-                        color: "#6B6B6B",
-                      }
-                }
-                aria-current={isActive ? "page" : undefined}
-              >
-                {name}
-              </Link>
-            );
-          })}
+        <div className="flex items-center gap-2">
+          <Link href="/methodology" className="hidden rounded-lg px-3 py-2 text-xs font-semibold text-slate-500 hover:text-slate-900 sm:block">계산 기준</Link>
+          <span className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-600">KR <span className="ml-1 text-slate-400">한국어</span></span>
         </div>
+      </div>
+      <nav className="overflow-x-auto border-t border-slate-100 lg:hidden" aria-label="모바일 계산기 메뉴" style={{ scrollbarWidth: "none" }}>
+        <div className="site-container flex w-max gap-1 py-2">{ALL_LINKS.map(item => <NavLink key={item.href} {...item} active={pathname === item.href} />)}</div>
       </nav>
     </header>
   );
+}
+
+function NavLink({ name, href, active }: { name: string; href: string; active: boolean }) {
+  return <Link href={href} className={`rounded-lg px-3 py-2 text-sm font-medium transition ${active ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"}`} aria-current={active ? "page" : undefined}>{name}</Link>;
 }

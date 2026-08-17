@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TakdeukseClient from "./TakdeukseClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "취득세 계산기 2026 — 주택·토지·상가 취득세 자동 계산",
@@ -97,6 +98,7 @@ export default function TakdeuksePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <TakdeukseClient />
+      <CalculatorGuide slug="takdeukse" />
     </>
   );
 }

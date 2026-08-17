@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import YeonbongClient from "./YeonbongClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "연봉 실수령액 계산기 2026 — 4대보험·세금 공제 후 월급 계산",
@@ -106,6 +107,7 @@ export default function YeonbongPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <YeonbongClient />
+      <CalculatorGuide slug="yeonbong" />
     </>
   );
 }

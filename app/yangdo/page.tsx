@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import YangdoClient from "./YangdoClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "양도소득세 계산기 2026 — 부동산 매도 세금 계산",
@@ -97,6 +98,7 @@ export default function YangdoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <YangdoClient />
+      <CalculatorGuide slug="yangdo" />
     </>
   );
 }

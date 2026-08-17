@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JeungyeseClient from "./JeungyeseClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "증여세 계산기 — 부동산·현금 증여세 자동 계산",
@@ -46,6 +47,7 @@ export default function JeungyesePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <JeungyeseClient />
+      <CalculatorGuide slug="jeungyese" />
     </>
   );
 }

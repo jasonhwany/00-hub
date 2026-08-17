@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JeonwolseClient from "./JeonwolseClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "전월세 전환 계산기 — 전세·월세 상호 전환",
@@ -46,6 +47,7 @@ export default function JeonwolsePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <JeonwolseClient />
+      <CalculatorGuide slug="jeonwolse" />
     </>
   );
 }

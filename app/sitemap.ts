@@ -74,5 +74,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...[
+      "about",
+      "methodology",
+      "editorial-policy",
+      "privacy",
+      "terms",
+      "disclaimer",
+      "contact",
+      "advertise",
+    ].map((path) => ({
+      url: `https://www.moneystom7.com/${path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: path === "methodology" || path === "about" ? 0.7 : 0.5,
+    })),
   ];
 }

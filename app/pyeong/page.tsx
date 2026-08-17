@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PyeongClient from "./PyeongClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "평 ㎡ 변환기 — 평수·제곱미터 즉시 변환",
@@ -46,6 +47,7 @@ export default function PyeongPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PyeongClient />
+      <CalculatorGuide slug="pyeong" />
     </>
   );
 }
