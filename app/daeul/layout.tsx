@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "대출이자 계산기 | MoneyStom7",
     description:
       "원리금균등·원금균등·만기일시 3가지 상환방식별 월 상환금과 총 이자를 비교하세요.",
-    url: "https://moneystom7.com/daeul",
+    url: "https://www.moneystom7.com/daeul",
   },
 };
 

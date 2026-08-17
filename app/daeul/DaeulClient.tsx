@@ -517,7 +517,7 @@ export default function DaeulPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-12">
 
-      <a href="https://moneystom7.com" className="inline-flex items-center gap-1 text-sm transition-colors mb-8" style={{ color: "#6B6B6B" }}>
+      <a href="https://www.moneystom7.com" className="inline-flex items-center gap-1 text-sm transition-colors mb-8" style={{ color: "#6B6B6B" }}>
         <span aria-hidden="true">←</span>
         moneystom7.com으로 돌아가기
       </a>

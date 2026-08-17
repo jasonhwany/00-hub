@@ -4,7 +4,7 @@ import "./globals.css";
 import GlobalHeader from "../components/GlobalHeader";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://moneystom7.com"),
+  metadataBase: new URL("https://www.moneystom7.com"),
   title: {
     default: "MoneyStom7 — 한국 부동산·세금 계산기",
     template: "%s | MoneyStom7",
@@ -39,6 +39,12 @@ export default function RootLayout({
         className="min-h-screen antialiased"
         style={{ backgroundColor: "#FAFAF7", color: "#1A1A1A" }}
       >
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8414331859152952"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
         <GlobalHeader />
         {children}
         <Script

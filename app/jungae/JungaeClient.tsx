@@ -96,7 +96,7 @@ export default function JungaePage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-12">
       <a
-        href="https://moneystom7.com"
+        href="https://www.moneystom7.com"
         className="inline-flex items-center gap-1 text-sm mb-8"
         style={{ color: "#6B6B6B" }}
       >

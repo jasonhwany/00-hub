@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://moneystom7.com/sitemap.xml
+Sitemap: https://www.moneystom7.com/sitemap.xml

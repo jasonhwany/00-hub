@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "재산세 계산기 | MoneyStom7",
     description:
       "주택·토지 공시가격 기준 재산세를 즉시 계산하세요. 도시지역분·지방교육세 포함.",
-    url: "https://moneystom7.com/jaesanse",
+    url: "https://www.moneystom7.com/jaesanse",
   },
 };
 

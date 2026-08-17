@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "평/㎡ 변환기 | MoneyStom7",
     description:
       "평과 제곱미터를 즉시 변환하세요. 1평 = 3.305785㎡ 정확한 환산값 적용.",
-    url: "https://moneystom7.com/pyeong",
+    url: "https://www.moneystom7.com/pyeong",
   },
 };
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "종합부동산세 계산기 | MoneyStom7",
     description:
       "주택 공시가격 기준 종부세를 즉시 계산하세요. 세액공제·농특세 포함.",
-    url: "https://moneystom7.com/jongbu",
+    url: "https://www.moneystom7.com/jongbu",
   },
 };
 

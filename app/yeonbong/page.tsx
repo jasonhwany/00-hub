@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "연봉 실수령액 계산기 2026 — 4대보험·세금 공제 후 월급 계산",
   description:
     "2026년 기준 연봉 실수령액 계산기. 국민연금·건강보험·장기요양·고용보험·소득세 자동 계산. 부양가족 수, 비과세 식대 반영. 월 실수령액을 즉시 확인하세요.",
-  alternates: { canonical: "https://moneystom7.com/yeonbong" },
+  alternates: { canonical: "https://www.moneystom7.com/yeonbong" },
   keywords: [
     "연봉 실수령액",
     "연봉 실수령액 계산기",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "연봉 실수령액 계산기 2026 — 4대보험·세금 공제 후 월급 계산",
     description:
       "2026년 기준 연봉 실수령액 계산기. 국민연금·건강보험·장기요양·고용보험·소득세 자동 계산. 월 실수령액을 즉시 확인하세요.",
-    url: "https://moneystom7.com/yeonbong",
+    url: "https://www.moneystom7.com/yeonbong",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ const webAppLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "연봉 실수령액 계산기",
-  url: "https://moneystom7.com/yeonbong",
+  url: "https://www.moneystom7.com/yeonbong",
   description:
     "2026년 기준 연봉 실수령액 계산기. 국민연금·건강보험·장기요양·고용보험·소득세 자동 계산. 월 실수령액을 즉시 확인하세요.",
   applicationCategory: "FinanceApplication",
@@ -43,7 +43,7 @@ const webAppLd = {
   provider: {
     "@type": "Organization",
     name: "MoneyStom7",
-    url: "https://moneystom7.com",
+    url: "https://www.moneystom7.com",
   },
 };
 

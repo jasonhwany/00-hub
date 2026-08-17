@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "임대수익률 계산기 | MoneyStom7",
     description:
       "매입가·보증금·월세로 임대수익률을 즉시 계산하세요. 전세가율 포함.",
-    url: "https://moneystom7.com/imdae",
+    url: "https://www.moneystom7.com/imdae",
   },
 };
 

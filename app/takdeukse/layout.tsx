@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "취득세 계산기 | MoneyStom7",
     description:
       "주택 취득세를 즉시 계산하세요. 1주택·다주택·법인, 조정대상지역 여부 자동 반영.",
-    url: "https://moneystom7.com/takdeukse",
+    url: "https://www.moneystom7.com/takdeukse",
   },
 };
 
