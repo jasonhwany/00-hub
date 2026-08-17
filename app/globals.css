@@ -23,6 +23,10 @@ body {
   color: var(--slate-950);
 }
 
+.font-brand {
+  font-family: "Manrope", "Noto Sans KR", sans-serif;
+}
+
 ::selection { background: #dbe8ff; color: #0c2d68; }
 
 .site-container { width: min(1080px, calc(100% - 40px)); margin-inline: auto; }

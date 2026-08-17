@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -29,9 +30,14 @@ export default function GlobalHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl">
       <div className="site-container flex h-16 items-center justify-between gap-5">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="MoneyStom7 홈">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#142b49] text-sm font-black text-white shadow-sm">M</span>
-          <span><b className="block text-[15px] tracking-[-.02em] text-slate-950">MoneyStom7</b><small className="block text-[9px] font-bold uppercase tracking-[.16em] text-slate-400">Financial tools</small></span>
+        <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label="Fiscal Atlas 홈">
+          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition group-hover:border-blue-200 group-hover:shadow-md">
+            <Image src="/brand/fiscal-atlas-mark-source.png" alt="" width={40} height={40} className="h-9 w-9 object-contain" priority />
+          </span>
+          <span>
+            <b className="font-brand block text-[17px] font-bold leading-none tracking-[-.025em] text-[#0b1f3a]">Fiscal Atlas</b>
+            <small className="mt-1 block text-[8px] font-bold uppercase tracking-[.2em] text-slate-400">Global financial intelligence</small>
+          </span>
         </Link>
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="주요 계산기">
           {MAIN_LINKS.map((item) => <NavLink key={item.href} {...item} active={pathname === item.href} />)}

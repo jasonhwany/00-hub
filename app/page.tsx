@@ -45,7 +45,7 @@ export default function HubPage(){return <main>
   </section>
 
   <section className="border-y border-slate-200 bg-white"><div className="site-container grid gap-10 py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-    <div><p className="eyebrow">Built for trust</p><h2 className="mt-3 text-[1.7rem] font-extrabold leading-snug tracking-[-.035em] text-slate-950">결과보다 중요한 것은<br/>결과를 믿을 수 있는 이유입니다.</h2><p className="mt-5 max-w-md text-sm leading-7 text-slate-600">MoneyStom7은 계산 공식을 숨기지 않습니다. 적용 범위와 예외, 자료의 기준일, 전문가 확인이 필요한 상황을 함께 설명합니다.</p><Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800">운영 원칙 자세히 보기 <span>→</span></Link></div>
+    <div><p className="eyebrow">Built for trust</p><h2 className="mt-3 text-[1.7rem] font-extrabold leading-snug tracking-[-.035em] text-slate-950">결과보다 중요한 것은<br/>결과를 믿을 수 있는 이유입니다.</h2><p className="mt-5 max-w-md text-sm leading-7 text-slate-600">Fiscal Atlas는 계산 공식을 숨기지 않습니다. 적용 범위와 예외, 자료의 기준일, 전문가 확인이 필요한 상황을 함께 설명합니다.</p><Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800">운영 원칙 자세히 보기 <span>→</span></Link></div>
     <div className="grid gap-3 sm:grid-cols-2"><Feature n="01" title="기준연도 표시" text="법령과 요율이 적용되는 시점을 분명하게 표시합니다."/><Feature n="02" title="공식 출처" text="운영 기관과 법령 원문을 우선해 검증합니다."/><Feature n="03" title="예외와 한계" text="온라인 계산이 반영하지 못하는 조건을 설명합니다."/><Feature n="04" title="변경 이력" text="결과에 영향을 주는 업데이트를 기록합니다."/></div>
   </div></section>
 
