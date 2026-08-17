@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const groups = [
-  { title: "서비스", links: [["세금 계산기", "/#calculators"], ["계산 방법론", "/methodology"], ["업데이트 정책", "/editorial-policy"]] },
+  { title: "서비스", links: [["세금 계산기", "/#calculators"], ["부동산 인사이트", "/insights"], ["계산 방법론", "/methodology"], ["업데이트 정책", "/editorial-policy"]] },
   { title: "Fiscal Atlas", links: [["서비스 소개", "/about"], ["문의하기", "/contact"], ["광고·제휴", "/advertise"]] },
   { title: "정책", links: [["개인정보처리방침", "/privacy"], ["이용약관", "/terms"], ["면책 고지", "/disclaimer"]] },
 ];
