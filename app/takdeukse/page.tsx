@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "취득세 계산기 2026 — 주택·토지·상가 취득세 자동 계산",
   description:
     "2026년 최신 법령 기준 취득세 계산기. 1주택·2주택·법인 취득, 조정대상지역 여부에 따라 취득세·농어촌특별세·지방교육세를 자동으로 계산합니다. 무료.",
-  alternates: { canonical: "https://moneystom7.com/takdeukse" },
+  alternates: { canonical: "https://www.moneystom7.com/takdeukse" },
   openGraph: {
     title: "취득세 계산기 2026 — 주택·토지·상가 취득세 자동 계산",
     description:
       "2026년 최신 법령 기준 취득세 계산기. 1주택·2주택·법인 취득, 조정대상지역 여부에 따라 취득세·농어촌특별세·지방교육세를 자동으로 계산합니다. 무료.",
-    url: "https://moneystom7.com/takdeukse",
+    url: "https://www.moneystom7.com/takdeukse",
     type: "website",
   },
 };
@@ -19,7 +19,7 @@ const webAppLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "취득세 계산기",
-  url: "https://moneystom7.com/takdeukse",
+  url: "https://www.moneystom7.com/takdeukse",
   description:
     "2026년 최신 법령 기준 취득세 계산기. 1주택·2주택·법인 취득, 조정대상지역 여부에 따라 취득세·농어촌특별세·지방교육세를 자동으로 계산합니다. 무료.",
   applicationCategory: "FinanceApplication",
@@ -34,7 +34,7 @@ const webAppLd = {
   provider: {
     "@type": "Organization",
     name: "MoneyStom7",
-    url: "https://moneystom7.com",
+    url: "https://www.moneystom7.com",
   },
 };
 

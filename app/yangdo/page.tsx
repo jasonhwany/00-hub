@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "양도소득세 계산기 2026 — 부동산 매도 세금 계산",
   description:
     "2026년 기준 부동산 양도소득세 계산기. 1세대1주택 비과세, 장기보유특별공제, 다주택 중과세율을 반영하여 양도세를 정확하게 계산합니다. 무료.",
-  alternates: { canonical: "https://moneystom7.com/yangdo" },
+  alternates: { canonical: "https://www.moneystom7.com/yangdo" },
   openGraph: {
     title: "양도소득세 계산기 2026 — 부동산 매도 세금 계산",
     description:
       "2026년 기준 부동산 양도소득세 계산기. 1세대1주택 비과세, 장기보유특별공제, 다주택 중과세율을 반영하여 양도세를 정확하게 계산합니다. 무료.",
-    url: "https://moneystom7.com/yangdo",
+    url: "https://www.moneystom7.com/yangdo",
     type: "website",
   },
 };
@@ -19,7 +19,7 @@ const webAppLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "양도소득세 계산기",
-  url: "https://moneystom7.com/yangdo",
+  url: "https://www.moneystom7.com/yangdo",
   description:
     "2026년 기준 부동산 양도소득세 계산기. 1세대1주택 비과세, 장기보유특별공제, 다주택 중과세율을 반영하여 양도세를 정확하게 계산합니다. 무료.",
   applicationCategory: "FinanceApplication",
@@ -34,7 +34,7 @@ const webAppLd = {
   provider: {
     "@type": "Organization",
     name: "MoneyStom7",
-    url: "https://moneystom7.com",
+    url: "https://www.moneystom7.com",
   },
 };
 

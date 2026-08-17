@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "증여세 계산기 | MoneyStom7",
     description:
       "증여 금액과 관계에 따른 증여세를 즉시 계산하세요. 공제·세율 자동 적용.",
-    url: "https://moneystom7.com/jeungyese",
+    url: "https://www.moneystom7.com/jeungyese",
   },
 };
 

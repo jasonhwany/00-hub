@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "중개수수료 계산기 | MoneyStom7",
     description:
       "매매·전세·월세 거래 중개수수료를 즉시 계산하세요. 법정 상한 요율 자동 적용.",
-    url: "https://moneystom7.com/jungae",
+    url: "https://www.moneystom7.com/jungae",
   },
 };
 

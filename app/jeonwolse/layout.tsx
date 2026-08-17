@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "전월세 전환 계산기 | MoneyStom7",
     description:
       "전세와 월세를 상호 전환하세요. 법정 상한 전환율 기준 즉시 계산.",
-    url: "https://moneystom7.com/jeonwolse",
+    url: "https://www.moneystom7.com/jeonwolse",
   },
 };
 
