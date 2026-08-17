@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { insightPosts } from "../lib/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -74,6 +75,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://www.moneystom7.com/insights",
+      lastModified: new Date(Math.max(...insightPosts.map((post) => new Date(post.updatedAt).getTime()))),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...insightPosts.map((post) => ({
+      url: `https://www.moneystom7.com/insights/${post.slug}`,
+      lastModified: new Date(post.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     ...[
       "about",
       "methodology",

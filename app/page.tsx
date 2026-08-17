@@ -1,5 +1,7 @@
 import Link from "next/link";
 import ToolCard from "../components/ToolCard";
+import InsightCard from "../components/InsightCard";
+import { formatInsightDate, insightPosts } from "../lib/insights";
 
 const taxTools = [
   { name:"취득세 계산기",desc:"주택·토지·상가 취득 시 세금과 부가세목을 계산합니다.",url:"/takdeukse",tag:"Property",accent:"blue" },
@@ -18,17 +20,33 @@ const financeTools = [
 ];
 
 export default function HubPage(){return <main>
+  <div className="border-b border-blue-500/30 bg-blue-600 text-white">
+    <Link href={`/insights/${insightPosts[0].slug}`} className="site-container flex min-h-10 items-center gap-3 py-2 text-xs sm:text-sm">
+      <span className="shrink-0 rounded bg-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-blue-700">오늘의 핵심</span>
+      <strong className="truncate font-bold">{insightPosts[0].title}</strong>
+      <span className="ml-auto shrink-0 font-bold text-blue-100">읽기 →</span>
+    </Link>
+  </div>
   <section className="relative overflow-hidden bg-[#071426] text-white">
     <div className="absolute inset-0 opacity-30" style={{backgroundImage:"radial-gradient(circle at 75% 20%, #3979f6 0, transparent 26%), radial-gradient(circle at 20% 90%, #2463eb 0, transparent 22%)"}} />
     <div className="site-container relative grid gap-12 py-16 lg:grid-cols-[1fr_.82fr] lg:items-center lg:gap-16 lg:py-20">
-      <div><div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-3 py-1.5 text-xs font-semibold text-blue-100"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400"/>2026년 기준 · 공식 자료 기반</div>
-        <h1 className="mt-6 max-w-xl text-balance text-[2.35rem] font-extrabold leading-[1.18] tracking-[-.04em] sm:text-[2.75rem]">중요한 금융 결정,<br/><span className="text-blue-300">숫자와 근거</span>로 확인하세요.</h1>
-        <p className="mt-6 max-w-lg text-[15px] leading-7 text-slate-300 sm:text-base">세금, 대출, 주거비와 급여를 계산하고 결과가 만들어진 기준까지 이해할 수 있습니다. 한국에서 시작해 세계 각국의 생활경제 도구로 확장합니다.</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="#calculators" className="btn-primary rounded-xl px-6 py-3.5 text-center text-sm font-bold">계산기 둘러보기</Link><Link href="/methodology" className="rounded-xl border border-white/20 bg-white/[.06] px-6 py-3.5 text-center text-sm font-bold text-white hover:bg-white/10">계산 기준 확인</Link></div>
+      <div><div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-bold text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400"/>NEW · {insightPosts[0].category}</div>
+        <p className="mt-5 text-xs font-extrabold uppercase tracking-[.16em] text-blue-300">Featured insight</p>
+        <h1 className="mt-3 max-w-xl text-balance text-[2.35rem] font-extrabold leading-[1.18] tracking-[-.04em] sm:text-[2.75rem]">{insightPosts[0].title}</h1>
+        <p className="mt-5 max-w-lg text-[15px] leading-7 text-slate-300 sm:text-base">{insightPosts[0].description}</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href={`/insights/${insightPosts[0].slug}`} className="btn-primary rounded-xl px-6 py-3.5 text-center text-sm font-bold">지금 읽기 →</Link><Link href="#calculators" className="rounded-xl border border-white/20 bg-white/[.06] px-6 py-3.5 text-center text-sm font-bold text-white hover:bg-white/10">계산기 이용하기</Link></div>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Metric value="11" label="사용 가능한 계산기"/><Metric value="100%" label="무료 · 가입 불필요"/><Metric value="Local" label="입력값 브라우저 계산"/><Metric value="Global" label="국가별 서비스 준비"/>
-        <div className="col-span-full mt-2 rounded-2xl border border-white/10 bg-white/[.06] p-5 backdrop-blur"><p className="text-xs font-bold uppercase tracking-[.14em] text-blue-300">Our standard</p><p className="mt-2 text-sm leading-6 text-slate-300">적용연도, 계산 가정, 공식 출처와 한계를 함께 공개합니다. 광고나 제휴가 계산 결과를 바꾸지 않습니다.</p></div>
+      <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/[.08] shadow-2xl shadow-black/20 backdrop-blur">
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <p className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.13em] text-blue-200"><span className="h-2 w-2 rounded-full bg-emerald-400"/>Latest insights</p>
+          <Link href="/insights" className="text-xs font-bold text-slate-300 hover:text-white">전체보기 →</Link>
+        </div>
+        <div className="divide-y divide-white/10">
+          {insightPosts.slice(1).map((post) => <Link key={post.slug} href={`/insights/${post.slug}`} className="group block px-5 py-6 transition hover:bg-white/[.06]">
+            <div className="flex items-center gap-2 text-[11px] text-slate-400"><span className="font-bold text-blue-300">{post.category}</span><span>·</span><time dateTime={post.publishedAt}>{formatInsightDate(post.publishedAt)}</time></div>
+            <h2 className="mt-2 text-[15px] font-bold leading-6 text-white transition group-hover:text-blue-200">{post.title} <span className="inline-block text-blue-300 transition group-hover:translate-x-1">→</span></h2>
+          </Link>)}
+        </div>
       </div>
     </div>
   </section>
@@ -37,12 +55,20 @@ export default function HubPage(){return <main>
     <TrustItem title="공식 자료 우선" text="정부·공공기관 원문 기준"/><TrustItem title="계산 과정 공개" text="세율·공제·중간값 설명"/><TrustItem title="독립적 운영" text="광고와 편집 기준 분리"/>
   </div></section>
 
-  <section id="calculators" className="site-container py-14 sm:py-16">
+  <section className="site-container py-14 sm:py-16">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div><p className="eyebrow">Latest insights</p><h2 className="mt-3 text-[1.7rem] font-extrabold tracking-[-.035em] text-slate-950">지금 필요한 부동산 정보</h2><p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">뉴스의 핵심부터 실제 거래와 대출 결정에 필요한 기준까지 쉽게 설명합니다.</p></div>
+      <Link href="/insights" className="text-sm font-bold text-blue-600 hover:text-blue-800">모든 인사이트 보기 →</Link>
+    </div>
+    <div className="mt-8 grid gap-5 md:grid-cols-3">{insightPosts.map(post=><InsightCard key={post.slug} post={post}/>)}</div>
+  </section>
+
+  <section id="calculators" className="border-t border-slate-200 bg-white py-14 sm:py-16"><div className="site-container">
     <div className="max-w-xl"><p className="eyebrow">Korea calculators</p><h2 className="mt-3 text-[1.7rem] font-extrabold tracking-[-.035em] text-slate-950">한국 세금과 부동산 계산</h2><p className="mt-3 text-sm leading-6 text-slate-600">거래 전에 예상 부담을 확인하고 전문가에게 물어볼 내용을 준비하세요.</p></div>
     <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{taxTools.map(t=><ToolCard key={t.url} {...t} live />)}</div>
     <div className="mt-14 max-w-xl"><p className="eyebrow">Everyday finance</p><h2 className="mt-3 text-[1.7rem] font-extrabold tracking-[-.035em] text-slate-950">생활 금융 도구</h2><p className="mt-3 text-sm leading-6 text-slate-600">대출, 급여, 임대수익과 부동산 거래 조건을 같은 화면에서 비교합니다.</p></div>
     <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{financeTools.map(t=><ToolCard key={t.url} {...t} live />)}</div>
-  </section>
+  </div></section>
 
   <section className="border-y border-slate-200 bg-white"><div className="site-container grid gap-10 py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
     <div><p className="eyebrow">Built for trust</p><h2 className="mt-3 text-[1.7rem] font-extrabold leading-snug tracking-[-.035em] text-slate-950">결과보다 중요한 것은<br/>결과를 믿을 수 있는 이유입니다.</h2><p className="mt-5 max-w-md text-sm leading-7 text-slate-600">Fiscal Atlas는 계산 공식을 숨기지 않습니다. 적용 범위와 예외, 자료의 기준일, 전문가 확인이 필요한 상황을 함께 설명합니다.</p><Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800">운영 원칙 자세히 보기 <span>→</span></Link></div>
@@ -52,6 +78,5 @@ export default function HubPage(){return <main>
   <section className="site-container py-16"><div className="overflow-hidden rounded-3xl bg-blue-600 px-6 py-10 text-white sm:px-10 lg:flex lg:items-center lg:justify-between"><div><p className="text-xs font-bold uppercase tracking-[.14em] text-blue-100">Global roadmap</p><h2 className="mt-2 text-2xl font-extrabold tracking-[-.03em]">국가 간 세후 급여와 생활비 비교를 준비하고 있습니다.</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-blue-100">영어 서비스와 미국·영국·일본의 공식 세금 규칙을 순차적으로 지원합니다.</p></div><Link href="/contact" className="mt-6 inline-block rounded-xl bg-white px-5 py-3 text-sm font-bold text-blue-700 lg:mt-0">국가·기능 제안하기</Link></div></section>
 </main>}
 
-function Metric({value,label}:{value:string;label:string}){return <div className="rounded-2xl border border-white/10 bg-white/[.06] p-5 backdrop-blur"><strong className="text-2xl font-extrabold tracking-tight text-white">{value}</strong><p className="mt-1 text-xs text-slate-400">{label}</p></div>}
 function TrustItem({title,text}:{title:string;text:string}){return <div className="px-6 py-4"><p className="flex items-center gap-2 text-sm font-bold text-slate-800"><span className="grid h-5 w-5 place-items-center rounded-full bg-emerald-50 text-[10px] text-emerald-600">✓</span>{title}</p><p className="ml-7 mt-1 text-xs text-slate-500">{text}</p></div>}
 function Feature({n,title,text}:{n:string;title:string;text:string}){return <div className="surface-card rounded-2xl p-5"><span className="text-xs font-black text-blue-500">{n}</span><h3 className="mt-3 text-sm font-bold text-slate-900">{title}</h3><p className="mt-2 text-xs leading-5 text-slate-500">{text}</p></div>}

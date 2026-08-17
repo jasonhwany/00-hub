@@ -11,6 +11,7 @@ const MAIN_LINKS = [
   { name: "증여세", href: "/jeungyese" }, { name: "재산세", href: "/jaesanse" },
 ] as const;
 const MORE_LINKS = [
+  { name: "부동산 인사이트", href: "/insights" },
   { name: "중개수수료", href: "/jungae" }, { name: "평·㎡ 변환", href: "/pyeong" },
   { name: "임대수익률", href: "/imdae" }, { name: "전월세 전환", href: "/jeonwolse" },
   { name: "연봉 실수령액", href: "/yeonbong" },
@@ -47,6 +48,7 @@ export default function GlobalHeader() {
           </div>
         </nav>
         <div className="flex items-center gap-2">
+          <Link href="/insights" className={`hidden rounded-lg px-3 py-2 text-xs font-semibold sm:block ${pathname.startsWith("/insights") ? "bg-blue-50 text-blue-700" : "text-slate-500 hover:text-slate-900"}`}>인사이트</Link>
           <Link href="/methodology" className="hidden rounded-lg px-3 py-2 text-xs font-semibold text-slate-500 hover:text-slate-900 sm:block">계산 기준</Link>
           <span className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-600">KR <span className="ml-1 text-slate-400">한국어</span></span>
         </div>
