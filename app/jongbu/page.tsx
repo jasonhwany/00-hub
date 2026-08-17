@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JongbuClient from "./JongbuClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "종합부동산세 계산기 2026 — 종부세 자동 계산",
@@ -46,6 +47,7 @@ export default function JongbuPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <JongbuClient />
+      <CalculatorGuide slug="jongbu" />
     </>
   );
 }

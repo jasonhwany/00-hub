@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import GlobalHeader from "../components/GlobalHeader";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.moneystom7.com"),
@@ -35,10 +36,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body
-        className="min-h-screen antialiased"
-        style={{ backgroundColor: "#FAFAF7", color: "#1A1A1A" }}
-      >
+      <body className="min-h-screen antialiased">
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8414331859152952"
@@ -47,6 +45,7 @@ export default function RootLayout({
         />
         <GlobalHeader />
         {children}
+        <SiteFooter />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-GN51TN6PS4"

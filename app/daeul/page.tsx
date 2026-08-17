@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DaeulClient from "./DaeulClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "대출이자 계산기 — 원리금균등·원금균등·만기일시 이자 비교",
@@ -46,6 +47,7 @@ export default function DaeulPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <DaeulClient />
+      <CalculatorGuide slug="daeul" />
     </>
   );
 }

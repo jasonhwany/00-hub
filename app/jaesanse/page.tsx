@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JaesanseClient from "./JaesanseClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "재산세 계산기 — 주택·토지·건물 보유세 자동 계산",
@@ -46,6 +47,7 @@ export default function JaesansePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <JaesanseClient />
+      <CalculatorGuide slug="jaesanse" />
     </>
   );
 }

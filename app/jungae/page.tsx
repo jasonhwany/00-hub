@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JungaeClient from "./JungaeClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "중개수수료 계산기 — 매매·전세·월세 법정 중개보수 계산",
@@ -46,6 +47,7 @@ export default function JungaePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <JungaeClient />
+      <CalculatorGuide slug="jungae" />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ImdaeClient from "./ImdaeClient";
+import CalculatorGuide from "../../components/CalculatorGuide";
 
 export const metadata: Metadata = {
   title: "임대수익률 계산기 — 매입가·보증금·월세로 수익률 계산",
@@ -46,6 +47,7 @@ export default function ImdaePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ImdaeClient />
+      <CalculatorGuide slug="imdae" />
     </>
   );
 }
