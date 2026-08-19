@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-8414331859152952" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
