@@ -18,6 +18,7 @@ const financeTools = [
   { name:"전월세 전환 계산기",desc:"보증금과 월세를 법정 전환율 기준으로 비교합니다.",url:"/jeonwolse",tag:"Housing",accent:"violet" },
   { name:"연봉 실수령액 계산기",desc:"4대 보험과 세금 공제 후 월 실수령액을 추정합니다.",url:"/yeonbong",tag:"Salary",accent:"blue" },
 ];
+const latestInsights = insightPosts.slice(0, 3);
 
 export default function HubPage(){return <main>
   <div className="border-b border-blue-500/30 bg-blue-600 text-white">
@@ -42,7 +43,7 @@ export default function HubPage(){return <main>
           <Link href="/insights" className="text-xs font-bold text-slate-300 hover:text-white">전체보기 →</Link>
         </div>
         <div className="divide-y divide-white/10">
-          {insightPosts.slice(1).map((post) => <Link key={post.slug} href={`/insights/${post.slug}`} className="group block px-5 py-6 transition hover:bg-white/[.06]">
+          {latestInsights.slice(1).map((post) => <Link key={post.slug} href={`/insights/${post.slug}`} className="group block px-5 py-6 transition hover:bg-white/[.06]">
             <div className="flex items-center gap-2 text-[11px] text-slate-400"><span className="font-bold text-blue-300">{post.category}</span><span>·</span><time dateTime={post.publishedAt}>{formatInsightDate(post.publishedAt)}</time></div>
             <h2 className="mt-2 text-[15px] font-bold leading-6 text-white transition group-hover:text-blue-200">{post.title} <span className="inline-block text-blue-300 transition group-hover:translate-x-1">→</span></h2>
           </Link>)}
@@ -60,7 +61,7 @@ export default function HubPage(){return <main>
       <div><p className="eyebrow">Latest insights</p><h2 className="mt-3 text-[1.7rem] font-extrabold tracking-[-.035em] text-slate-950">지금 필요한 부동산 정보</h2><p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">뉴스의 핵심부터 실제 거래와 대출 결정에 필요한 기준까지 쉽게 설명합니다.</p></div>
       <Link href="/insights" className="text-sm font-bold text-blue-600 hover:text-blue-800">모든 인사이트 보기 →</Link>
     </div>
-    <div className="mt-8 grid gap-5 md:grid-cols-3">{insightPosts.map(post=><InsightCard key={post.slug} post={post}/>)}</div>
+    <div className="mt-8 grid gap-5 md:grid-cols-3">{latestInsights.map(post=><InsightCard key={post.slug} post={post}/>)}</div>
   </section>
 
   <section id="calculators" className="border-t border-slate-200 bg-white py-14 sm:py-16"><div className="site-container">
